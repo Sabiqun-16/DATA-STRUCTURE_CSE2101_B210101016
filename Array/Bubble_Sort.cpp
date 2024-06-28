@@ -15,6 +15,7 @@ int main()
     cout<<"Enter array size---";
     int n;
     cin>>n;
+    cout<<endl;
     int arr[n];
     cout<<"Unsorted Array:";
     for(int i=0;i<n;i++){
@@ -22,7 +23,7 @@ int main()
     }
     cout<<endl;
     BubbleSort(arr,n);
-    cout<<"Sorted Array";
+    cout<<"Sorted Array:";
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
