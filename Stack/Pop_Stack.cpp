@@ -43,7 +43,7 @@ int main()
 
         if(ch==1) Print();
         else if(ch==2){
-            cout<<"Enter value to be pushed: ";
+            cout<<"Enter value to be poped: ";
             Pop();
         }
         else if (ch==3){
