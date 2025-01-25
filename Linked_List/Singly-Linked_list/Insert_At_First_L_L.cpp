@@ -17,7 +17,7 @@ void Print(){
     cout<<"NULL"<<endl;
 }
 void InsertAtFirst(int data){
-    struct Node* newNode=new Node();
+    Node* newNode=(Node *)malloc(sizeof(Node));
     if(newNode==NULL){
         cout<<"Memory Allocation Failed"<<endl;
         return;
@@ -40,9 +40,8 @@ int main()
         cin>>k;
         InsertAtFirst(k);
     }
-    cout<<"Insert at end: ";
+    cout<<"After insertion at first: ";
     Print();
 
     return 0;
 }
-
