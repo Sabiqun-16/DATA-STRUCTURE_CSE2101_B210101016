@@ -1,54 +1,57 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct Node{
+struct Node {
     int data;
     Node* next;
 };
 
-Node *head= NULL;
+Node* head = nullptr;
+Node* newNode;
+Node* temp;
 
-void Print(){
-     Node* ptr=head;
-    while(ptr!=NULL){
-        cout<<ptr->data<<" ";
-        ptr= ptr->next;
+void Print() {
+    temp = head;
+    cout << "Linked List : ";
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-    cout<<"NULL"<<endl;
 }
-void InsertAtEnd(int data){
-    Node* newNode=(Node*)malloc(sizeof(Node));
-    if(newNode==NULL){
-        cout<<"Memory Allocation Failed"<<endl;
-        return;
-    }
-    newNode->data=data;
-    newNode->next=NULL;
 
-    if(head==NULL){
-        head=newNode;
-        return;
+void insertatEnd() {
+    int dataEnd;
+    newNode = new Node;
+    cout << "\nEnter the data to insert at end: ";
+    cin >> newNode->data;
+    newNode->next = nullptr;
+    temp = head;
+    while (temp->next != nullptr) {
+        temp = temp->next;
     }
-    struct Node* temp=head;
-
-    while(temp->next!=NULL){
-        temp =temp->next;
-    }
-    temp->next=newNode;
-
+    temp->next = newNode;
 }
-int main()
-{
-    cout<<"Number of Node: ";
-    int n;cin>>n;
-    cout<<"Values of the node: ";
-    int k;
 
-    while(n--){
-        cin>>k;
-        InsertAtEnd(k);
+
+int main() {
+    int n;
+    cout << "Enter the number of nodes : ";
+    cin >> n;
+    cout << "Enter the data : ";
+    for (int i = 0; i < n; i++) {
+        newNode = new Node;
+        cin >> newNode->data;
+        newNode->next = nullptr;
+        if (head == nullptr) {
+            head = temp = newNode;
+        } else {
+            temp->next = newNode;
+            temp = newNode;
+        }
     }
-    cout<<"Insert at end: ";
+    Print();
+
+    insertatEnd();
     Print();
 
     return 0;
