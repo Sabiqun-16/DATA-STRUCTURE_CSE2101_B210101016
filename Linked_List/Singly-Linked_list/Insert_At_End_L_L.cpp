@@ -3,13 +3,13 @@ using namespace std;
 
 struct Node{
     int data;
-    struct Node* next;
+    Node* next;
 };
 
 Node *head= NULL;
 
 void Print(){
-    struct Node* ptr=head;
+     Node* ptr=head;
     while(ptr!=NULL){
         cout<<ptr->data<<" ";
         ptr= ptr->next;
@@ -17,7 +17,7 @@ void Print(){
     cout<<"NULL"<<endl;
 }
 void InsertAtEnd(int data){
-    struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+    Node* newNode=(Node*)malloc(sizeof(Node));
     if(newNode==NULL){
         cout<<"Memory Allocation Failed"<<endl;
         return;
