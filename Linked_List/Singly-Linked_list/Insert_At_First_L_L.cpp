@@ -1,46 +1,55 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct Node{
+struct Node {
     int data;
-    struct Node* next;
+    Node* next;
 };
 
-Node *head= NULL;
+Node* head = nullptr;
+Node* newNode;
+Node* temp;
 
-void Print(){
-    struct Node* ptr=head;
-    while(ptr!=NULL){
-        cout<<ptr->data<<" ";
-        ptr= ptr->next;
+void Print() {
+    temp = head;
+    cout << "Linked List : ";
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-    cout<<"NULL"<<endl;
 }
-void InsertAtFirst(int data){
-    Node* newNode=(Node *)malloc(sizeof(Node));
-    if(newNode==NULL){
-        cout<<"Memory Allocation Failed"<<endl;
-        return;
-    }
-    newNode->data=data;
-    newNode->next=head;
-    head=newNode;
+
+void insertatFirst() {
+    int newData;
+    cout << "\nEnter the data for add beginning: ";
+    cin >> newData;
+    newNode = new Node;
+    newNode->data = newData;
+    newNode->next = head;
+    head = newNode;
+    cout<<"After insertion the ";
 }
-int main()
-{
 
 
-    cout<<"Number of Node: ";
+int main() {
     int n;
-    cin>>n;
-    cout<<"Values of the node: ";
-    int k;
-
-    while(n--){
-        cin>>k;
-        InsertAtFirst(k);
+    cout << "Enter the number of nodes : ";
+    cin >> n;
+    cout << "Enter the data : ";
+    for (int i = 0; i < n; i++) {
+        newNode = new Node;
+        cin >> newNode->data;
+        newNode->next = nullptr;
+        if (head == nullptr) {
+            head = temp = newNode;
+        } else {
+            temp->next = newNode;
+            temp = newNode;
+        }
     }
-    cout<<"After insertion at first: ";
+    Print();
+
+    insertatFirst();
     Print();
 
     return 0;
