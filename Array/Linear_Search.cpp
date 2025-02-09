@@ -1,30 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool LinearSearch(int *arr,int n,int k){
-    for(int i=0;i<n;i++){
-        if(arr[i]==k)
-            return 1;
+int Search(vector<int>&arr,int key){
+    for(int i=0;i<arr.size();i++){
+        if(arr[i]==key) return i;
     }
-    return 0;
+     return -1;
+
+
 }
 
-int main()
-{
-    cout<<"Enter Array Size---"<<endl;
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
+int main() {
+    int s;
+    cout << "Enter array size : " ;
+    cin >> s;
+    cout << "\nEnter array : " ;
+    vector<int>arr(s);
+    for (int i = 0; i <s;i++){
         cin>>arr[i];
     }
-    cout<<"Enter a Keyword---"<<endl;
-    int k;
-    cin>>k;
-    bool found=LinearSearch(arr,n,k);
-    if(found)
-        cout<<"The element is found"<<endl;
+    int key;
+    cout << "\nEnter a key : " ;
+    cin>>key;
+    int res=Search(arr,key);
+    if (res==-1) cout <<"\nNot present" << endl;
     else
-        cout<<"The element is found"<<endl;
+        cout <<"\nPresent at index : "<< res<<endl;;
     return 0;
 }
