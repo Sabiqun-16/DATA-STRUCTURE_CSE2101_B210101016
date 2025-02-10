@@ -1,30 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int BinarySearch(int *arr,int n,int k){
-    int first=0,last=n-1;
-    int mid=first+(last-first)/2;
+int Binarysearch(int arr[],int first,int last,int key){
     while(first<=last){
-        if(arr[mid]==k)
+        int mid=first+(last-first)/2;
+        if(arr[mid]==key)
             return mid;
-        else if(arr[mid]<k)
+        if(arr[mid]<key)
             first=mid+1;
         else
             last=mid-1;
-
-        mid=first+(last-first)/2;
     }
-    return -1;
+     return -1;
 }
 
 
 int main()
 {
-    int even[6]={7,4,2,5,6,8};
-    int odd[5]={1,3,9,10,12};
-    int EvenIndex=BinarySearch(even,6,12);
-    cout<<"Even Index is "<<EvenIndex<<endl;
-    int OddIndex=BinarySearch(odd,5,9);
-    cout<<"Odd Index is "<<OddIndex<<endl;
+    cout<<"Enter array size : " ;
+    int size;
+    cin>>size;
+    cout<<"\nEnter array : " ;
+    int arr[size];
+    for(int i=0;i<size;i++){
+        cin>>arr[i];
+    }
+
+    cout<<"\nEnter a Key : " ;
+    int key;
+    cin>>key;
+
+    int res=Binarysearch(arr,0,size-1,key);
+    if(res==-1) cout<<"\nNot found : " ;
+    else cout<<"\nfound at position: "<<res ;
+
     return 0;
 }
