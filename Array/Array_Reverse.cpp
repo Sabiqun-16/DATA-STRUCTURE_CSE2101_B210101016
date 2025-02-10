@@ -7,31 +7,29 @@ void traverse(int arr[],int size){
     }
     cout<<endl;
 }
+
 void reverse(int arr[],int size){
-    int i=0,j=size-1;
-    while(i<j){
-        int temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-        i++;
-        j--;
+    for(int i=size-1;i>=0;i--){
+        cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
+
 int main()
 {
+    cout<<"Enter array size : ";
     int size;
     cin>>size;
+     cout<<"\nEnter array : ";
     int arr[size];
     for(int i=0;i<size;i++){
         cin>>arr[i];
     }
-    cout<<endl;
-    cout<<"Before reverse : "<<endl;
+    cout<<"\nBefore reverse : " ;
     traverse(arr,size);
 
-    cout<<"After reverse : "<<endl;
+    cout<<"After reverse : " ;
     reverse(arr,size);
 
-    traverse(arr,size);
     return 0;
 }
