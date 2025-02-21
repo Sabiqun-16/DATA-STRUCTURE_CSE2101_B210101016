@@ -16,7 +16,7 @@ void Pop() {
 void Print() {
     if (top >= 0) {
         printf("Stack elements are: ");
-        for (int i = top; i >= 0; i--) {
+        for(int i=0;i<=top;i++) {
             printf("%d ", stack[i]);
         }
         printf("\n");
