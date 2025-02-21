@@ -14,7 +14,7 @@ void Push(int v){
 void Print(){
     if (top>=0){
         cout<<"Stack elements are: ";
-        for(int i=top;i>=0;i--) cout<<stack[i]<<" ";
+        for(int i=0;i<=top;i++) cout<<stack[i]<<" ";
         cout<<endl;
     }
     else cout<<"Stack is empty"<<endl;
