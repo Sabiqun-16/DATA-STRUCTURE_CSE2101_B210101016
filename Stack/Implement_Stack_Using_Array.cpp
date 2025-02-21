@@ -22,7 +22,7 @@ void Pop(){
 void Print(){
     if (top>=0){
         cout<<"Stack elements are: ";
-        for(int i=top;i>=0;i--)cout<<sta[i]<<" ";
+        for(int i=0;i<=top;i++) cout<<sta[i]<<" ";
         cout<<endl;
     }
     else cout<<"Stack is empty"<<endl;
