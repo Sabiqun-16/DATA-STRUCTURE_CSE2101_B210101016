@@ -1,50 +1,53 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-// Node structure
-struct Node {
-    int data;
-    Node* left;
-    Node* right;
-
-    // Constructor
-    Node(int value) {
-        data = value;
-        left = right = nullptr;
-    }
+struct node {
+  int data;
+  node *left = nullptr;
+  node *right = nullptr;
 };
 
-//insert nodes
-Node* insertNode() {
-    int value;
-    cout << "Enter node value (-1 for NULL): ";
-    cin >> value;
-    if (value == -1) return nullptr;
+node* insert(node* root, int data) {
+  if (root == nullptr) {
+    node* newnode = new node;
+    newnode->data = data;
+    return newnode;
+  }
+  
+  if (data < root->data) {
+    root->left = insert(root->left, data);
+  } else {
+    root->right = insert(root->right, data);
+  }
 
-    Node* newNode = new Node(value);
-    cout << "Enter left child of " << value << ": ";
-    newNode->left = insertNode();
-    cout << "Enter right child of " << value << ": ";
-    newNode->right = insertNode();
-
-    return newNode;
+  return root;
 }
 
-// Preorder traversal
-void preorder(Node* root) {
-    if (root == nullptr) return;
-    cout << root->data << " -> ";
-    preorder(root->left);
-    preorder(root->right);
+void preorder(node* tree) {
+  if (tree != nullptr) {
+    cout << tree->data << " -> ";
+    preorder(tree->left);
+    preorder(tree->right);
+  }
 }
 
 int main() {
-    cout << "Create the binary tree:\n";
-    Node* root = insertNode();
+  node* root = nullptr;
+  int data;
 
-    cout << "\nPreorder Traversal:\n";
-    preorder(root);
-    cout << "NULL\n";
+  cout << "Enter values for the Binary Search Tree (enter -1 to stop):\n";
+  while (true) {
+    cout << "Enter node value: ";
+    cin >> data;
 
-    return 0;
+    if (data == -1) break;
+
+    root = insert(root, data);
+  }
+
+  cout << "\nPreorder Traversal:\n";
+  preorder(root);
+  cout << "NULL\n";
+
+  return 0;
 }
